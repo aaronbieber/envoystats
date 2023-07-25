@@ -11,16 +11,6 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-type Data struct {
-	Timestamp int64
-	Stat      int64
-}
-
-type StatPickle struct {
-	Path string
-	Data Data
-}
-
 type Config struct {
 	Email               string `yaml:"email"`
 	Password            string `yaml:"password"`
