@@ -92,7 +92,14 @@ func main() {
 				Timestamp: now,
 				Value:     data.ConsumptionWattsNow}})
 
-	client := carbonclient.NewCarbonClient(cfg.CarbonIP, carbonclient.PICKLE_PORT)
+	client, err := carbonclient.NewCarbonClient(cfg.CarbonIP, carbonclient.PICKLE_PORT)
+	if err != nil {
+		log.WithFields(log.Fields{
+			"carbonIP": cfg.CarbonIP,
+			"port":     carbonclient.PICKLE_PORT,
+		}).Fatal(err)
+	}
+
 	err = client.SendMetrics(stat[:])
 	if err != nil {
 		log.WithFields(log.Fields{
@@ -102,4 +109,6 @@ func main() {
 
 		panic("error sending metrics to carbon")
 	}
+
+	log.Info("metrics sent to carbon", stat[:])
 }
