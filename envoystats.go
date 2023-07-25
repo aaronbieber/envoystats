@@ -46,6 +46,7 @@ func main() {
 	log.Info("Starting envoystats...")
 	cfg, err := readConfig()
 	if err != nil {
+		log.Fatal(err)
 		panic(err)
 	}
 
