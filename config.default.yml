@@ -1,0 +1,7 @@
+email: "your_enphase_account@gmail.com"
+password: "your_enphase_password"
+envoySerialNo: "121212121212"
+envoyIP: "192.168.1.100"
+carbonIP: "192.168.1.200"
+productionStatPath: "stats.gauges.sandbox.solar.production"
+consumptionStatPath: "stats.gauges.sandbox.solar.consumption"
