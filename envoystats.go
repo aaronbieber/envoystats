@@ -81,13 +81,13 @@ func main() {
 	var stat []carbonclient.TimedMetric
 	stat = append(stat,
 		carbonclient.TimedMetric{
-			Path: "stats.gauges.sandbox.solar.production",
+			Path: cfg.ProductionStatPath,
 			Value: carbonclient.TimedMetricValue{
 				Timestamp: now,
 				Value:     data.ProductionWattsNow}})
 	stat = append(stat,
 		carbonclient.TimedMetric{
-			Path: "stats.gauges.sandbox.solar.consumption",
+			Path: cfg.ConsumptionStatPath,
 			Value: carbonclient.TimedMetricValue{
 				Timestamp: now,
 				Value:     data.ConsumptionWattsNow}})
