@@ -8,6 +8,26 @@ collect the stats from the Envoy and send them to Carbon, respectively.
 [ec]: https://github.com/aaronbieber/envoyclient
 [cc]: https://github.com/aaronbieber/carbonclient
 
+## Overview
+
+The Envoy device serves a web portal, and within it you can find a link to a
+realtime energy stats feed, which is spit out as a JSON document. Unfortunately,
+newer Envoy devices (like mine), now require authentication to your Enphase
+account on the internet, which provides you a token that you use to access the
+local portal. [There is more information here][guytec].
+
+[guytec]: https://guytec.com/Envoy-S/
+
+I lament the move in this direction, but this was the software version my Envoy
+was installed with, so I have no alternatives available. For that reason, this
+software is built to do the cloud authentication via the Enphase site (the same
+one you log into to view your live energy stats), acquire the token, and then
+talk to the Envoy directly.
+
+It's a shame that an internet round-trip is necessary just to get local data off
+your local device, but the tokens live for a while, so at least the energy
+readings can be very fast, local requests.
+
 ## Building
 
 Provided you have Go installed and that it's somewhere near version 1.20.6,
